@@ -233,7 +233,7 @@ class StanfordCoreNLP:
         if sys.version_info.major >= 3:
             data = data.encode('utf-8')
 
-        properties = {'annotators': annotators, 'outputFormat': 'json'}
+        properties = {'annotators': annotators, 'outputFormat': 'json', 'tokenize.whitespace': 'true', 'ssplit.eolonly': 'true'}
         params = {'properties': str(properties), 'pipelineLanguage': self.lang}
         if 'pattern' in kwargs:
             params = {"pattern": kwargs['pattern'], 'properties': str(properties), 'pipelineLanguage': self.lang}
